@@ -43,27 +43,13 @@ export default function Index(prop) {
 
     const {} = props;
 
+
     useEffect(() => {
         // Update the document title using the browser API
 
         return () => {
         }
     }, []);
-
-    function compose(...funcs) {
-        if (funcs.length === 0) {
-            return data => data
-        }
-
-        if(funcs.length === 1){
-            return funcs[0]
-        }
-
-        return funcs.reduce((all,current)=>(...arg)=>all(current(...arg)))
-    }
-
-    console.log(999,compose((aa)=>{return 12},(bb)=>{return 33})(22))
-
 
     return (
         <Router data={baseRoutes}>
