@@ -8,7 +8,7 @@ module.exports={
     //本地调试时的端口
     dev_port:3100,
     //发布后的网站title
-    title:"智慧校园"
+    title:"margaret"
   },
   web:{
     url:pro?"":"",
