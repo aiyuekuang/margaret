@@ -1,0 +1,269 @@
+@charset "UTF-8";
+@import "./rest";
+@import "./static/animate.css";
+@import "./ani";
+//表单和树和表格边缘对齐
+$up_table_warp_bottom: 0;
+
+$lanse: #1890ff;
+$chengse: rgba(239, 141, 70, 1);
+$huise: #e7e7e7;
+$huizi: #666666;
+$huibg: #f0f5ff;
+$xiaohuizi: #999999;
+$kuan: 1160px;
+$biankuang: 1px solid $huise;
+
+.none_data{
+  color: $huizi;
+  @include juzhong2();
+  min-height: 100px;
+  svg{
+    vertical-align: middle;
+    margin-right: 4px;
+  }
+}
+.up_table_warp {
+  width: 100%;
+  .ant-table-tbody{
+    td{
+      font-size: 13px;
+      word-break: break-all;
+    }
+  }
+}
+
+.up_table_warp_bottom {
+  @include hp(stretch);
+
+  > div {
+  }
+}
+
+.up_table_warp_bottom_r {
+  flex-grow: 2
+}
+
+.table_className {
+  table {
+    border-radius: 4px;
+  }
+}
+
+.up_table_warp_bottom_l {
+  min-width: 160px;
+  padding: $up_table_warp_bottom;
+  .up_tree_warp{
+    margin: 0 auto;
+  }
+}
+
+.up_table_warp_bottom_r {
+  min-width: 375px;
+  margin-left: 6px;
+  padding: $up_table_warp_bottom;
+}
+
+.up_table_warp_bottom_r_s {
+  width: 100%;
+  padding: $up_table_warp_bottom;
+}
+
+$up_tree_head_height: 38px;
+.up_tree_head {
+  @include hp();
+  line-height: $up_tree_head_height;
+  color: #000;
+  border-bottom: $biankuang;
+}
+
+.up_tree_head_tit {
+  text-indent: 6px;
+}
+
+.up_tree_warp {
+  border: $biankuang;
+  border-radius: 4px;
+  height: 100%;
+  margin: 10px auto;
+}
+
+.up_tree_body {
+  padding: 0 6px;
+  overflow-y: scroll;
+}
+
+.loading {
+  text-align: center;
+  border-radius: 4px;
+  padding: 30px 50px;
+  margin: 20px 0;
+}
+
+.up_tree_search {
+  padding: 6px;
+}
+
+.up_tree_btn {
+  text-align: right;
+  padding: 8px 0;
+}
+
+.up_tree_eidt_warp {
+  @include hp(flex-start);
+}
+
+.up_tree_eidt_warp_l {
+  //min-width: 225px;
+}
+
+.up_tree_eidt_warp_r {
+  width: 500px;
+}
+
+.up_tree_eidt_warp_r_tab {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.up_tree_eidt_form {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.up_tree_eidt_form_btn {
+  @include hp();
+}
+
+%up_table_form_common {
+  @include hp3(400px,40px);
+  > div {
+    animation: show 1s;
+    will-change: transform;
+  }
+}
+
+.up_table_form {
+  @extend %up_table_form_common;
+  .ant-form-item-label-left{
+    text-align-last: justify;
+  }
+  .ant-form-item{
+    margin-bottom: 0;
+  }
+}
+
+.up_table_form_search{
+  @include hp2();
+  >div{
+    margin: 0 4px;
+  }
+  .ant-form-item{
+    margin-bottom: 0;
+  }
+}
+
+.up_table_form_btn {
+  flex: 1 0 0;
+  line-height: 40px;
+  text-align: left;
+}
+
+.up_table_form_add_list {
+  @include hp2(flex-start, flex-start);
+}
+
+
+.up_table_warp_btn {
+  @include hp2();
+  margin-bottom: 6px;
+
+  > div {
+    margin-right: 6px;
+  }
+}
+
+.up_tree_head_show {
+  background: $huibg;
+  width: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.up_table_warp_btn_tree_btn {
+  line-height: 30px;
+  @extend .up_tree_head_show;
+}
+
+.up_table_form_add_btn {
+  @include hp(flex-start, flex-start);
+
+  > div {
+    margin-left: 20px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+.up_ueditor, .edui-gray {
+  line-height: normal;
+
+  * {
+    box-sizing: content-box;
+
+    &:after, &:before {
+      box-sizing: content-box;
+    }
+  }
+}
+
+.braft_warp {
+  .component-wrapper {
+    display: inline-block;
+  }
+}
+
+.braft_warp_top {
+  border: $biankuang;
+  border-radius: 8px;
+}
+
+.braft_warp_btn {
+  @include hp();
+  padding: 8px 0;
+}
+
+.up_g2_warp {
+  margin: 0 auto;
+  text-align: center;
+  .mainTitle {
+    font-size: 18px;
+    color: #333333;
+    text-align: center;
+  }
+
+  .subTitle {
+    font-size: 14px;
+    color: #bbbbbb;
+    text-align: center;
+  }
+}
+
+.ani_warp {
+  > div {
+    will-change: animation;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
+
+.up_table_warp_top {
+  margin-bottom: 20px;
+  padding: 20px 0;
+}
+
+.up_table_warp_btn_submit{
+  text-align: center;
+}

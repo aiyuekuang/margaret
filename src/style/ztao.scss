@@ -1,0 +1,100 @@
+@charset "UTF-8";
+@import "./rest";
+@import "./xiangmude";
+@import "static/anim";
+@import "../../node_modules/nprogress/nprogress.css";
+
+.up_index {
+  background: $huibg;
+  padding: 100px;
+
+  .index {
+    padding: 20px;
+
+    > div {
+      background: #fff;
+      margin-top: 20px;
+      padding: 20px 10px;
+      border-radius: 4px;
+    }
+  }
+
+  .list {
+    @include hp2();
+
+    > div {
+      width: 20%;
+      text-align: center;
+      margin-top: 10px;
+
+      &:hover {
+        @extend .tada, .animated;
+      }
+
+      img {
+        width: 90%;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .table {
+    padding: 10px;
+  }
+
+  .tit {
+    padding: 20px;
+    font-size: 20px;
+    color: #000;
+  }
+
+  .chart {
+    @include hp();
+    padding: 20px;
+
+    > div {
+      background: $huibg;
+      width: 24%;
+      padding: 20px;
+      margin-top: 10px;
+      border-radius: 6px;
+    }
+  }
+}
+
+.dynamic-delete-button {
+  cursor: pointer;
+  position: relative;
+  font-size: 24px;
+  color: #999;
+  transition: all 0.3s;
+}
+
+.dynamic-delete-button:hover {
+  color: #777;
+}
+
+.dynamic-delete-button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.anup_form_ques_opt {
+  display: inline-block;
+  @include hengpai();
+  vertical-align: middle;
+  >div{
+    line-height: 14px;
+    vertical-align: middle;
+  }
+  svg{
+    vertical-align: middle;
+  }
+  .ant-checkbox{
+    vertical-align: middle;
+    input{
+      vertical-align: middle;
+    }
+
+  }
+}

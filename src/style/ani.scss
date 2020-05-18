@@ -1,0 +1,15 @@
+//从无到显示
+@keyframes show
+{
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@mixin ani($show:show,$time:1s){
+  will-change: animation;
+  animation: $show $time;
+}
+
+
+.ani_show{
+  @include ani();
+}
