@@ -6,6 +6,7 @@ import Page1 from "@page/page1"
 import Page2 from "@page/page2"
 import Router from "@components/router"
 import {mg} from "@components/context";
+import {compose} from "@components/utils";
 
 
 //本项目的模板页面
@@ -50,6 +51,8 @@ export default function Index(prop) {
         return () => {
         }
     }, []);
+
+
 
     return (
         <Router data={baseRoutes}>

@@ -1,6 +1,6 @@
-import compose from "@utils";
+import {compose} from "../utils";
 
-export const count1 = (state, action) => {
+const count1 = (state, action) => {
     console.log(77,state,action)
     switch (action.type) {
         case "ADD":
@@ -12,7 +12,7 @@ export const count1 = (state, action) => {
     }
 }
 
-export const count2 = (state, action) => {
+const count2 = (state, action) => {
     console.log(88,state,action)
     switch (action.type) {
         case "ADD2":
