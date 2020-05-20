@@ -1,6 +1,6 @@
-import compose from "@utils";
+import {combindReducer, compose} from "@utils";
 
-export const count1 = (state, action) => {
+export const count1 = (state = 1, action={}) => {
     console.log(77,state,action)
     switch (action.type) {
         case "ADD":
@@ -12,7 +12,7 @@ export const count1 = (state, action) => {
     }
 }
 
-export const count2 = (state, action) => {
+export const count2 = (state = 3, action={}) => {
     console.log(88,state,action)
     switch (action.type) {
         case "ADD2":
@@ -24,6 +24,11 @@ export const count2 = (state, action) => {
     }
 }
 
-const rootReducer = compose(count1,count2)
+export const rootReducer = compose(count1,count2)
 
-export default rootReducer;
+export const bindReducer = combindReducer({
+    count1,
+    count2
+})
+
+
