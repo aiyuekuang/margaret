@@ -1,7 +1,7 @@
 import {combindReducer, compose} from "@utils";
 
 export const count1 = (state = 1, action={}) => {
-    console.log(77,state,action)
+    // console.log(77,state,action)
     switch (action.type) {
         case "ADD":
             return state + 1;
@@ -13,12 +13,12 @@ export const count1 = (state = 1, action={}) => {
 }
 
 export const count2 = (state = 3, action={}) => {
-    console.log(88,state,action)
+    // console.log(88,state,action)
     switch (action.type) {
         case "ADD2":
-            return state + 1;
+            return state + 2;
         case "JIAN2":
-            return state - 1;
+            return state - 2;
         default:
             return state;
     }
@@ -26,9 +26,9 @@ export const count2 = (state = 3, action={}) => {
 
 export const rootReducer = compose(count1,count2)
 
-export const bindReducer = combindReducer({
+export const bindReducer = {
     count1,
     count2
-})
+}
 
 

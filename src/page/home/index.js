@@ -34,8 +34,7 @@ let defaultProps = {}
 export default function Index(prop) {
     // Declare a new state variable, which we'll call "count"
 
-    const {state, dispatch} = mg()
-
+    const {count1,count2, dispatchs} = mg()
 
     let props = {
         ...defaultProps, ...prop
@@ -53,13 +52,34 @@ export default function Index(prop) {
 
     return (
         <Router data={baseRoutes}>
-            {state}
+            {count1}
             <button onClick={() => {
-                dispatch({
+                dispatchs({
                     type: "ADD"
                 })
             }}>加
             </button>
+            <button onClick={() => {
+                dispatchs({
+                    type: "JIAN"
+                })
+            }}>减
+            </button>
+            <br/>
+            {count2}
+            <button onClick={() => {
+                dispatchs({
+                    type: "ADD2"
+                })
+            }}>加1
+            </button>
+            <button onClick={() => {
+                dispatchs({
+                    type: "JIAN2"
+                })
+            }}>减
+            </button>
+            <br/>
             <a href="/page1">内页1</a>
             <a href="/page2">内页2</a>
         </Router>
