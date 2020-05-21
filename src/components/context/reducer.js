@@ -24,11 +24,5 @@ export const count2 = (state = 3, action={}) => {
     }
 }
 
-export const rootReducer = compose(count1,count2)
-
-export const bindReducer = {
-    count1,
-    count2
-}
 
 

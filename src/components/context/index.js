@@ -1,5 +1,5 @@
 import React, {createContext, useReducer, useContext} from "react";
-import {bindReducer, rootReducer} from "@components/context/reducer";
+import * as reducer from "@components/context/reducer";
 
 const AppContext = createContext();
 
@@ -13,8 +13,8 @@ export function AppProvider(props) {
     const allReducer = [];
     let store;
 
-    for (let i in bindReducer){
-        store = useReducer(bindReducer[i], bindReducer[i]())
+    for (let i in reducer){
+        store = useReducer(reducer[i], reducer[i]())
 
         globalState[i] = store[0]
         allReducer.push(store[1])
