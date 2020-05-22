@@ -2732,10 +2732,10 @@ eslint-scope@^4.0.3:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-esn@^2.0.18:
-  version "2.0.18"
-  resolved "https://registry.yarnpkg.com/esn/-/esn-2.0.18.tgz#28498f713180df0159a3b3691c1aca1d974b61b7"
-  integrity sha512-b/xq/Ao2Dvyfv+776oLR/twoOYw+lzy0hq08ub2qxJwc02/0WAnYemTWJAA63H4pCR/6yteQo2C31G2ekX/ADg==
+esn@^2.0.20:
+  version "2.0.20"
+  resolved "https://registry.npm.taobao.org/esn/download/esn-2.0.20.tgz?cache=0&sync_timestamp=1590157734806&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fesn%2Fdownload%2Fesn-2.0.20.tgz#4c89215fa3a71e2e2c7a7b1d76e3a258c5de28ad"
+  integrity sha1-TIkhX6OnHi4sensdduOiWMXeKK0=
   dependencies:
     moment "^2.24.0"
 
