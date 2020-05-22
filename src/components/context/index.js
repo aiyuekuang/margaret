@@ -1,4 +1,5 @@
 import React, {createContext, useReducer, useContext} from "react";
+import {mgRouter} from "../reducer";
 
 const AppContext = createContext();
 
@@ -9,12 +10,13 @@ export const mg = ()=>useContext(AppContext); // 把addAction映射进来
 
 export function AppProvider(props) {
     const { children,reducer } = props;
+    const rootReducer = {...mgRouter,...reducer}
     const globalState = {};
     const allReducer = [];
     let store;
 
-    for (let i in reducer){
-        store = useReducer(reducer[i], reducer[i]())
+    for (let i in rootReducer){
+        store = useReducer(rootReducer[i], rootReducer[i]())
 
         globalState[i] = store[0]
         allReducer.push(store[1])
@@ -26,7 +28,7 @@ export function AppProvider(props) {
     }
 
     return (
-        <Provider value={{dispatch,...globalState,Consumer }}>
+        <Provider value={{dispatch,...globalState }}>
             {children}
         </Provider>
     );

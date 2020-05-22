@@ -9,9 +9,8 @@ let defaultProps={
     data:[]
 }
 
+
 export default function Index(prop) {
-    // Declare a new state variable, which we'll call "count"
-    const [View, setView] = useState(0);
 
     let props={
         ...defaultProps,...prop
@@ -19,19 +18,15 @@ export default function Index(prop) {
     const {data} = props;
 
     useEffect(() => {
-        // Update the document title using the browser API
-
         return ()=>{
         }
     },[]);
 
 
 
-    let onClickRegister = () => {
-        setView('Register')
-        window.history.pushState(null, '', '/register')
-    }
 
+
+    console.log(222,data)
 
     return (
         <Fragment>
