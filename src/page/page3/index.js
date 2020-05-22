@@ -2,6 +2,7 @@
  * Created by zengtao on 2017/5/19.
  */
 import React, {Fragment, useEffect , useState } from 'react';
+import {mg} from "@components/context";
 //本项目的模板页面
 
 let baseRoutes = [{
@@ -20,12 +21,11 @@ let defaultProps={}
 
 export default function Index(prop) {
     // Declare a new state variable, which we'll call "count"
-    const [count, setCount] = useState(0);
+    const {count1} = mg()
 
     let props={
         ...defaultProps,...prop
     }
-    const {} = props;
 
     useEffect(() => {
         // Update the document title using the browser API
@@ -35,11 +35,11 @@ export default function Index(prop) {
     },[]);
 
 
-    console.log(22)
+    console.log(66)
 
     return (
         <div>
-内页2
+            {count1}
         </div>
     );
 }

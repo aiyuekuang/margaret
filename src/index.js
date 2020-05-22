@@ -4,9 +4,10 @@ import App from './page/home'
 import "./style/lib.scss"
 import "../mock"
 import {AppProvider} from "@components/context";
+import * as reducer from "./reducer";
 
 ReactDOM.render(
-    <AppProvider>
+    <AppProvider reducer={reducer}>
         <App/>
     </AppProvider>
     ,

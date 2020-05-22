@@ -4,6 +4,7 @@
 import React, {Fragment, useEffect, useState, useContext} from 'react';
 import Page1 from "@page/page1"
 import Page2 from "@page/page2"
+import Page3 from "@page/page3"
 import Router from "@components/router"
 import {mg} from "@components/context";
 
@@ -34,7 +35,7 @@ let defaultProps = {}
 export default function Index(prop) {
     // Declare a new state variable, which we'll call "count"
 
-    const {count1,count2, dispatchs} = mg()
+    const {count1,count2, dispatch,Consumer} = mg()
 
     let props = {
         ...defaultProps, ...prop
@@ -54,13 +55,13 @@ export default function Index(prop) {
         <Router data={baseRoutes}>
             {count1}
             <button onClick={() => {
-                dispatchs({
+                dispatch({
                     type: "ADD"
                 })
             }}>加
             </button>
             <button onClick={() => {
-                dispatchs({
+                dispatch({
                     type: "JIAN"
                 })
             }}>减
@@ -68,13 +69,13 @@ export default function Index(prop) {
             <br/>
             {count2}
             <button onClick={() => {
-                dispatchs({
+                dispatch({
                     type: "ADD2"
                 })
             }}>加1
             </button>
             <button onClick={() => {
-                dispatchs({
+                dispatch({
                     type: "JIAN2"
                 })
             }}>减
@@ -82,6 +83,8 @@ export default function Index(prop) {
             <br/>
             <a href="/page1">内页1</a>
             <a href="/page2">内页2</a>
+          <Page3/>
+          <Page2/>
         </Router>
     );
 }

@@ -1,14 +1,14 @@
 import React, {createContext, useReducer, useContext} from "react";
-import * as reducer from "@components/context/reducer";
 
 const AppContext = createContext();
 
 const { Provider,Consumer } = AppContext;
+export const mg = ()=>useContext(AppContext); // 把addAction映射进来
 
 
 
 export function AppProvider(props) {
-    const { children } = props;
+    const { children,reducer } = props;
     const globalState = {};
     const allReducer = [];
     let store;
@@ -21,20 +21,17 @@ export function AppProvider(props) {
     }
 
     // 这里可以创建一个 global dispatch function 和 global state
-    const dispatchs = action => {
+    const dispatch = action => {
         return allReducer.forEach(fn => fn(action));
     }
 
-
-
     return (
-        <Provider value={{dispatchs,...globalState }}>
+        <Provider value={{dispatch,...globalState,Consumer }}>
             {children}
         </Provider>
     );
 }
 
-export const mg = ()=>useContext(AppContext); // 把addAction映射进来
 
 
 export default AppContext;
