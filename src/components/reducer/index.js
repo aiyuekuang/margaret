@@ -10,6 +10,14 @@ export const mgRouter = (state = [], action={}) => {
 }
 
 
+export const mgKeepRouter = (state = [], action={}) => {
+    switch (action.type) {
+        case "MGSETKEEPROUTER":
+            return action.data
+        default:
+            return state;
+    }
+}
 
 
 

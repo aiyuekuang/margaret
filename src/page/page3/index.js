@@ -3,6 +3,7 @@
  */
 import React, {Fragment, useEffect , useState } from 'react';
 import {mg} from "@components/context";
+import Router, {history} from "@components/router";
 //本项目的模板页面
 
 let baseRoutes = [{
@@ -35,11 +36,17 @@ export default function Index(prop) {
     },[]);
 
 
-    console.log(66)
 
+    const goTo = (url) => {
+        history.push(url)
+    }
     return (
         <div>
             {count1}
+            内页3
+            <a onClick={() => goTo("/page1")}>内页1</a>
+            <a onClick={() => goTo("/page2")}>内页2</a>
+            <a onClick={() => goTo("/page5/page3", {state: 11})}>内页3</a>
         </div>
     );
 }

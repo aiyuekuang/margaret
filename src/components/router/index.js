@@ -3,12 +3,23 @@
  */
 import React, {Fragment, useEffect, useState} from 'react';
 import {createBrowserHistory} from "history"
-import {arrDelNull, arrLast, cloneop, isArrayop, treeSearchArrByArr, treeSearchByArr, urlToArr} from "esn";
+import {
+    arrDelNull,
+    arrLast,
+    cloneop,
+    isArrayop,
+    treeFindObjById,
+    treeSearchArrByArr,
+    treeSearchByArr,
+    urlToArr
+} from "esn";
 import {mg} from "../context";
+import link from "./link"
 //本项目的模板页面
 
 export const history = createBrowserHistory()
 
+export const Link = link;
 
 let defaultProps = {
     data: []
@@ -21,27 +32,32 @@ export default function Index(prop) {
     const {data} = props;
     const {mgRouter, dispatch} = mg()
 
-
     let setRouter = (datas) => {
-        let pathArr = urlToArr(datas.pathname)
+        let treeResult = [];
+
+        if (datas.pathname === "/") {
+            treeResult = [treeFindObjById("/", data, "path")]
+        } else {
+            treeResult = treeSearchArrByArr(data, urlToArr(datas.pathname), "path")
+        }
+
         dispatch({
             type: "MGSETROUTER",
-            data: treeSearchArrByArr(data, pathArr, "path")
+            data: treeResult
         })
     }
 
     useEffect(() => {
-        console.log(565, history.location)
         setRouter(history.location);
         history.listen((datas, type) => {
             setRouter(datas);
         })
+
         return () => {
         }
     }, []);
 
-    console.log(55533,arrLast(mgRouter))
-    let View = mgRouter && arrLast(mgRouter) ? arrLast(mgRouter).component : ()=>(<span/>)
+    let View = mgRouter && arrLast(mgRouter) ? arrLast(mgRouter).component : () => (<span/>)
 
     return (
         <Fragment>

@@ -27,8 +27,15 @@ export function AppProvider(props) {
         return allReducer.forEach(fn => fn(action));
     }
 
+    const setKeepRouterData=(data)=>{
+        dispatch({
+            type: "MGSETKEEPROUTER",
+            data: data
+        })
+    }
+
     return (
-        <Provider value={{dispatch,...globalState }}>
+        <Provider value={{dispatch,...globalState,...{setKeepRouterData} }}>
             {children}
         </Provider>
     );
