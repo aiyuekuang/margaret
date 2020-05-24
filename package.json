@@ -1,15 +1,14 @@
 {
-  "name": "react-housekeeper",
+  "name": "margaret",
   "version": "0.0.1",
-  "description": "",
+  "description": "Margaret is the next generation routing Library of react, which is based on community reflection react There are two modes in this database.",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --profile --mode development --progress",
     "lib": "npm run cleanLib && babel src/components --out-dir lib",
-    "build": "npm run cleanDist &&cross-env NODE_ENV=production webpack --mode production --progress",
-    "cleanDist": "rd /s/q dist && mkdir dist",
     "cleanLib": "rd /s/q lib && mkdir lib",
     "login": "npm login",
-    "fabu": "npm publish"
+    "fabu": "npm publish",
+    "quxiao": "npm unpublish margaret"
   },
   "main": "./lib/index.js",
   "files": [
