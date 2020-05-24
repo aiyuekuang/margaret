@@ -23,7 +23,7 @@ yarn add margaret
 1. Provider must be configured at react entry
 
 ```jsx
-import {MgProvider} from "@components/context";
+import {MgProvider} from "margaret";
 import * as reducer from "./reducer";
 
 //reducer is a user-defined reducer file
@@ -35,8 +35,6 @@ import * as reducer from "./reducer";
 2. Custom reducer file reducer.js Preparation of
 
 ```javascript
-import {combindReducer, compose} from "@utils";
-
 export const count1 = (state = 1, action={}) => {
 
     switch (action.type) {
@@ -109,8 +107,7 @@ import React, {Fragment, useEffect, useState, useContext} from 'react';
 import Page1 from "@page/page1"
 import Page2 from "@page/page2"
 import Page3 from "@page/page3"
-import Router, {history, Link} from "@components/router"
-import {mg} from "@components/context";
+import {history, Link,mg,Router} from "margaret"
 export default function Index(prop) {
     const {count1, count2,dispatch, setKeepRouterData} = mg()
 
@@ -155,7 +152,6 @@ export default function Index(prop) {
         </Fragment>
     );
 }
-
 ```
 
 It contains the use of data flow and routing. If you just want to use data flow, do not introduce router. Use mg to receive data and dispatch function in the required page. For details, please see：[URL](https://github.com/aiyuekuang/margaret/blob/master/doc/doc.md)

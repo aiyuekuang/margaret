@@ -107,7 +107,7 @@ export default function Index(prop) {
 #### 1.普通路由
 
 ```javascript
-import {Router} from "margaret"
+import {Router,history} from "margaret"
 
 let baseRoutes = [{
     name: "home",
@@ -164,6 +164,10 @@ children：非必填，子路由
 ##### mgRouter
 
 当前路由的路由路径的数组对象
+
+##### history
+
+history利用的history的库，history.push("/page1")，类似这样就可以跳转页面，更多api可以上npm自寻查看
 
 
 

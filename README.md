@@ -25,7 +25,7 @@ yarn add margaret
 1. 必须在react入口处配置Provider
 
 ```jsx
-import {MgProvider} from "@components/context";
+import {MgProvider} from "margaret";
 import * as reducer from "./reducer";
 
 //reducer就是用户自己定义的reducer文件
@@ -37,8 +37,6 @@ import * as reducer from "./reducer";
 2. 自定义reducer文件reducer.js的编写
 
 ```javascript
-import {combindReducer, compose} from "@utils";
-
 export const count1 = (state = 1, action={}) => {
 
     switch (action.type) {
@@ -111,8 +109,7 @@ import React, {Fragment, useEffect, useState, useContext} from 'react';
 import Page1 from "@page/page1"
 import Page2 from "@page/page2"
 import Page3 from "@page/page3"
-import Router, {history, Link} from "@components/router"
-import {mg} from "@components/context";
+import {history, Link,mg,Router} from "margaret"
 export default function Index(prop) {
     const {count1, count2,dispatch, setKeepRouterData} = mg()
 
