@@ -4,30 +4,9 @@
 import React, {Fragment, useEffect, useState, useContext} from 'react';
 import Page1 from "@page/page1"
 import Page2 from "@page/page2"
-import Router from "@components/router"
+import Page3 from "@page/page3"
+import Router, {history, Link} from "@components/router"
 import {mg} from "@components/context";
-import {compose} from "@components/utils";
-
-
-//本项目的模板页面
-
-let baseRoutes = [{
-    name: "内页1",
-    zh_CN: "内页1",
-    en_US: "home",
-    path: "/page1",
-    hide: true,
-    component: Page1,
-    icon: "HomeOutlined",
-}, {
-    name: "内页2",
-    zh_CN: "内页2",
-    en_US: "home",
-    path: "/page2",
-    hide: true,
-    component: Page2,
-    icon: "HomeOutlined",
-}]
 
 
 let defaultProps = {}
@@ -35,14 +14,14 @@ let defaultProps = {}
 export default function Index(prop) {
     // Declare a new state variable, which we'll call "count"
 
-    const {state, dispatch} = mg()
-
+    const {count1, count2, dispatch, setKeepRouterData} = mg()
 
     let props = {
         ...defaultProps, ...prop
     }
 
     const {} = props;
+
 
 
     useEffect(() => {
@@ -52,19 +31,45 @@ export default function Index(prop) {
         }
     }, []);
 
+    const goTo = (url) => {
+        history.push(url)
+    }
 
 
     return (
-        <Router data={baseRoutes}>
-            {state}
+        <Fragment>
+            {count1}
             <button onClick={() => {
                 dispatch({
                     type: "ADD"
                 })
             }}>加
             </button>
-            <a href="/page1">内页1</a>
-            <a href="/page2">内页2</a>
-        </Router>
+            <button onClick={() => {
+                dispatch({
+                    type: "JIAN"
+                })
+            }}>减
+            </button>
+            <br/>
+            {count2}
+            <button onClick={() => {
+                dispatch({
+                    type: "ADD2"
+                })
+            }}>加1
+            </button>
+            <button onClick={() => {
+                dispatch({
+                    type: "JIAN2"
+                })
+            }}>减
+            </button>
+            <br/>
+            <Link to="/page5">link的去内页5</Link>
+            <a onClick={() => goTo("/page1")}>内页1</a>
+            <a onClick={() => goTo("/page2")}>内页2</a>
+            <a onClick={() => goTo("/page5/page3", {state: 11})}>内页3</a>
+        </Fragment>
     );
 }
