@@ -96,7 +96,7 @@ export default function Index(prop) {
 
     useEffect(() => {
         let obj = arrLast(mgRouter)
-        if(obj && obj.redirect){
+        if (obj && obj.redirect) {
             history.replace(obj.redirect)
         }
 
@@ -118,7 +118,7 @@ export default function Index(prop) {
             } else {
                 if (data.component) {
                     return (
-                        <div className={data[mgRouterShow] ? "" : "gybxs"} key={i}>
+                        <div style={{display: data[mgRouterShow] ? "inline-block" : "none"}} key={i}>
                             <data.component/>
                         </div>
                     )

@@ -13,7 +13,6 @@
   },
   "main": "./lib/index.js",
   "files": [
-    "dist",
     "lib"
   ],
   "repository": {
