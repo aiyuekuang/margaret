@@ -63,7 +63,6 @@ let defaultProps = {}
 export default function Index(prop) {
     // Declare a new state variable, which we'll call "count"
 
-    const {count1, count2, dispatch, mgRouter} = mg()
 
     let props = {
         ...defaultProps, ...prop
@@ -79,9 +78,6 @@ export default function Index(prop) {
         }
     }, []);
 
-    const goTo = (url) => {
-        history.push(url)
-    }
 
 
     return (

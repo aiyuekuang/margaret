@@ -8,7 +8,7 @@ export const mg = ()=>useContext(AppContext); // 把addAction映射进来
 
 
 
-export function AppProvider(props) {
+export function MgProvider(props) {
     const { children,reducer } = props;
     const rootReducer = {...reducerRouter,...reducer}
     const globalState = {};
@@ -43,4 +43,3 @@ export function AppProvider(props) {
 
 
 
-export default AppContext;

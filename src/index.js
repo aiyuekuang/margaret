@@ -3,13 +3,13 @@ import React from 'react';
 import App from './page/router'
 import "./style/lib.scss"
 import "../mock"
-import {AppProvider} from "@components/context";
+import {MgProvider} from "@components/context";
 import * as reducer from "./reducer";
 
 ReactDOM.render(
-    <AppProvider reducer={reducer}>
+    <MgProvider reducer={reducer}>
         <App/>
-    </AppProvider>
+    </MgProvider>
     ,
     document.getElementById('root')
 );

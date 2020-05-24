@@ -87,21 +87,22 @@ export default function Index(prop) {
             data: newData
         })
 
-        let obj = arrLast(treeResult)
-        if(obj && obj.redirect){
-            history.push(obj.redirect)
-        }
+
     }
+
     history.listen((_location, type) => {
-        console.log(767,_location,mgKeepRouter)
         setRouter(_location, mgKeepRouter)
     })
-    useEffect(() => {
 
+    useEffect(() => {
+        let obj = arrLast(mgRouter)
+        if(obj && obj.redirect){
+            history.replace(obj.redirect)
+        }
 
         return () => {
         }
-    }, []);
+    }, [mgRouter]);
 
     useEffect(() => {
         setRouter(history.location, data)
