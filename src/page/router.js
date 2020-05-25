@@ -6,9 +6,7 @@ import Home from "@page/home"
 import Page1 from "@page/page1"
 import Page2 from "@page/page2"
 import Page3 from "@page/page3"
-import Router, {history} from "@components/router"
 import KeepRouter from "@components/router/keep"
-import {mg} from "@components/context";
 
 
 //本项目的模板页面
@@ -81,8 +79,6 @@ export default function Index(prop) {
 
 
     return (
-        <KeepRouter data={baseRoutes} onChange={(data)=>{
-            console.log(11111,data)
-        }}/>
+        <KeepRouter data={baseRoutes}/>
         )
 }

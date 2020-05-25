@@ -10,7 +10,23 @@
 
 是整个margaret的属性集合，在其中可以拿到router的运行时数据（当前路由的数据，设置路由数据的action，reducer数据等），前提是必须在函数组件中使用
 
+mg包含的主要属性如下：
 
+##### mgRouter
+
+当前路由的层级数组，通过他可以了解当前的路由路径，可用于面包屑等开发
+
+##### mgKeepRouter
+
+当使用状态路由时，全部路由得到数据，可以用于业务中其他需要路由的功能点
+
+##### setKeepRouterData
+
+这是一个函数，用于设置状态路由的数据
+
+##### dispatch
+
+触发action的函数
 
 
 
@@ -59,7 +75,7 @@ export const count2 = (state = 3, action={}) => {
 
 ```javascript
 import React, {Fragment} from 'react';
-import {mg} from "@components/context";
+import {mg} from "margaret";
 
 export default function Index(prop) {
     const {count1, count2,dispatch} = mg()
@@ -125,7 +141,7 @@ let baseRoutes = [{
 },{
     name: "page5",
     path: "/page5",
-    redirect:"/page5/page3"
+    redirect:"/page5/page3",
     children: [{
         name: "page3",
         path: "/page3",
@@ -194,7 +210,7 @@ let baseRoutes = [{
 },{
     name: "page5",
     path: "/page5",
-    redirect:"/page5/page3"
+    redirect:"/page5/page3",
     children: [{
         name: "page3",
         path: "/page3",
