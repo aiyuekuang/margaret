@@ -1,6 +1,6 @@
 {
   "name": "margaret",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Margaret is the next generation routing Library of react, which is based on community reflection react There are two modes in this database.",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --profile --mode development --progress",

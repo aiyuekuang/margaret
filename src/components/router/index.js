@@ -10,12 +10,10 @@ import {
     urlToArr
 } from "esn";
 import {mg} from "../context";
-import link from "./link"
 //本项目的模板页面
 
 export const history = createBrowserHistory()
 
-export const Link = link;
 
 let defaultProps = {
     data: []
