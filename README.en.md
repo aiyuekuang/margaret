@@ -81,7 +81,7 @@ let baseRoutes = [{
 },{
     name: "page5",
     path: "/page5",
-    redirect:"/page5/page3"
+    redirect:"/page5/page3",
     children: [{
         name: "page3",
         path: "/page3",
