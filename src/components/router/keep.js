@@ -24,7 +24,6 @@ let defaultProps = {
 
 //写入一个层级数组，找到对应的那个，改变当中的布尔值的值为true,其他的全部为false
 export let treeSetKeyByArr = (tree, arr, label = 'id', bool = "show", children = 'children') => {
-    let layer = 0;
     if (!tree) {
         console.log('提示', '你传递的tree是空');
     }
@@ -55,6 +54,7 @@ export let treeSetKeyByArr = (tree, arr, label = 'id', bool = "show", children =
     return tree_;
 };
 
+
 export default function Index(prop) {
     let props = {
         ...defaultProps, ...prop
@@ -63,18 +63,46 @@ export default function Index(prop) {
     const {mgRouter, mgKeepRouter, dispatch} = mg()
 
 
-    let setRouter = (_location, data = data) => {
+    let setRouter = (_location, data = data, type = "PUSH") => {
         let treeResult = [];
         let newData = [];
-
+        let _path = "/"
 
         if (_location.pathname === "/") {
             let obj = treeFindObjById("/", data, "path")
             treeResult = [obj]
-            newData = treeSetKeyByArr(data, ["/"], "path", mgRouterShow)
+            // newData = treeSetKeyByArr(data, ["/"], "path", mgRouterShow)
         } else {
             treeResult = treeSearchArrByArr(data, urlToArr(_location.pathname), "path")
-            newData = treeSetKeyByArr(data, urlToArr(_location.pathname), "path", mgRouterShow)
+            _path = arrLast(urlToArr(_location.pathname))
+            // newData = treeSetKeyByArr(data, urlToArr(_location.pathname), "path", mgRouterShow)
+        }
+
+        let oneResult = arrLast(treeResult)
+        let filterRoute = mgKeepRouter.findIndex((data,i)=>{
+            return data.path === oneResult.path
+        })
+
+        if(filterRoute !== -1){
+            newData = [...mgKeepRouter];
+            newData[filterRoute] = oneResult
+            console.log(1)
+        }else {
+            newData.push(oneResult)
+            console.log(2)
+
+        }
+
+        console.log(67767,newData)
+
+        if (type === "PUSH") {
+            newData.forEach((data,i)=>{
+                if(data.path === _path){
+                    data[mgRouterShow] = true
+                }else {
+                    data[mgRouterShow] = false
+                }
+            })
         }
 
         dispatch({
@@ -86,14 +114,18 @@ export default function Index(prop) {
             type: "MGSETKEEPROUTER",
             data: newData
         })
-
-
     }
 
-    history.listen((_location, type) => {
-        setRouter(_location, mgKeepRouter)
-    })
+    useEffect(() => {
 
+        history.listen((_location, type) => {
+            console.log(6789)
+            setRouter(_location, data, type)
+        })
+
+        return () => {
+        }
+    }, []);
     useEffect(() => {
         let obj = arrLast(mgRouter)
         if (obj && obj.redirect) {
@@ -113,18 +145,14 @@ export default function Index(prop) {
 
     let loopDom = (_routerData = mgKeepRouter) => {
         return _routerData.map((data, i) => {
-            if (data.children && data.children.length) {
-                return loopDom(data.children)
+            if (data.component) {
+                return (
+                    <div style={{display: data[mgRouterShow] ? "inline-block" : "none"}} key={i}>
+                        <data.component/>
+                    </div>
+                )
             } else {
-                if (data.component) {
-                    return (
-                        <div style={{display: data[mgRouterShow] ? "inline-block" : "none"}} key={i}>
-                            <data.component/>
-                        </div>
-                    )
-                } else {
-                    return null
-                }
+                return null
             }
         })
     }

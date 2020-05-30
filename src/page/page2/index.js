@@ -2,7 +2,7 @@
  * Created by zengtao on 2017/5/19.
  */
 import React, {Fragment, useEffect , useState } from 'react';
-import Router, {history} from "@components/router";
+import {history} from "@components";
 //本项目的模板页面
 
 let baseRoutes = [{

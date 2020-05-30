@@ -7,6 +7,7 @@ import Page1 from "@page/page1"
 import Page2 from "@page/page2"
 import Page3 from "@page/page3"
 import KeepRouter from "@components/router/keep"
+import {mg} from "@components";
 
 
 //本项目的模板页面
@@ -68,6 +69,7 @@ export default function Index(prop) {
 
     const {} = props;
 
+    const {mgKeepRouter} = mg()
 
     useEffect(() => {
         // Update the document title using the browser API
@@ -77,6 +79,7 @@ export default function Index(prop) {
     }, []);
 
 
+    console.log(23232,mgKeepRouter)
 
     return (
         <KeepRouter data={baseRoutes}/>

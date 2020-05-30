@@ -2,7 +2,7 @@
  * Created by zengtao on 2017/5/19.
  */
 import React, {Fragment, useEffect, useState} from 'react';
-import Router, {history, Link} from "@components/router";
+import {history, Link} from "@components";
 //本项目的模板页面
 
 

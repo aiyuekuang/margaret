@@ -3,7 +3,7 @@
  */
 import React, {Fragment, useEffect , useState } from 'react';
 import {mg} from "@components/context";
-import Router, {history} from "@components/router";
+import {history} from "@components";
 //本项目的模板页面
 
 let baseRoutes = [{

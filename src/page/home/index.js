@@ -5,7 +5,7 @@ import React, {Fragment, useEffect, useState, useContext} from 'react';
 import Page1 from "@page/page1"
 import Page2 from "@page/page2"
 import Page3 from "@page/page3"
-import Router, {history, Link} from "@components/router"
+import {Router,history,Link} from "@components/index"
 import {mg} from "@components/context";
 
 
@@ -14,7 +14,7 @@ let defaultProps = {}
 export default function Index(prop) {
     // Declare a new state variable, which we'll call "count"
 
-    const {count1, count2, dispatch, setKeepRouterData} = mg()
+    const {count1, count2, dispatch, setKeepRouterData,mgKeepRouter} = mg()
 
     let props = {
         ...defaultProps, ...prop
