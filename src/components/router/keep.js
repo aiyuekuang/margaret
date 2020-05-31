@@ -65,8 +65,9 @@ export default function Index(prop) {
 
     let setRouter = (_location, data = data, type = "PUSH") => {
         let treeResult = [];
-        let newData = [];
+        let newData = [...mgKeepRouter];
         let _path = "/"
+
 
         if (_location.pathname === "/") {
             let obj = treeFindObjById("/", data, "path")
@@ -79,27 +80,23 @@ export default function Index(prop) {
         }
 
         let oneResult = arrLast(treeResult)
-        let filterRoute = mgKeepRouter.findIndex((data,i)=>{
+        let filterRoute = mgKeepRouter.findIndex((data, i) => {
             return data.path === oneResult.path
         })
 
-        if(filterRoute !== -1){
-            newData = [...mgKeepRouter];
+        if (filterRoute !== -1) {
             newData[filterRoute] = oneResult
-            console.log(1)
-        }else {
+        } else {
             newData.push(oneResult)
-            console.log(2)
 
         }
 
-        console.log(67767,newData)
 
         if (type === "PUSH") {
-            newData.forEach((data,i)=>{
-                if(data.path === _path){
+            newData.forEach((data, i) => {
+                if (data.path === _path) {
                     data[mgRouterShow] = true
-                }else {
+                } else {
                     data[mgRouterShow] = false
                 }
             })
@@ -116,16 +113,19 @@ export default function Index(prop) {
         })
     }
 
-    useEffect(() => {
-
         history.listen((_location, type) => {
-            console.log(6789)
+            console.log(776,mgKeepRouter)
             setRouter(_location, data, type)
         })
+
+
+    useEffect(() => {
+
 
         return () => {
         }
     }, []);
+
     useEffect(() => {
         let obj = arrLast(mgRouter)
         if (obj && obj.redirect) {
