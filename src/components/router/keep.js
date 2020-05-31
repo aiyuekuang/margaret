@@ -114,7 +114,6 @@ export default function Index(prop) {
     }
 
         history.listen((_location, type) => {
-            console.log(776,mgKeepRouter)
             setRouter(_location, data, type)
         })
 
